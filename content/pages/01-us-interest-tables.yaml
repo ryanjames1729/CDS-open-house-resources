@@ -7,11 +7,22 @@ type: directory
 # Student ambassadors' names are left off on purpose (public site); tables with
 # ambassadors set students: true, and student-led tables set studentLed: true.
 intro: |
-  Faculty and student ambassadors are waiting at tables in three spaces. Tap a space to jump to it, or search for a subject, club or person.
+  Faculty and student ambassadors are waiting at tables in three spaces. Tap a topic or a space, or search for a subject, activity or person (try "biology" or "theater").
+# Topic buttons shown above the tables. Each table lists one or more ids under categories.
+categories:
+  - { id: academics, label: Academics }
+  - { id: arts, label: Arts }
+  - { id: athletics, label: Athletics }
+  - { id: clubs, label: Clubs }
+  - { id: support, label: Counseling & Support }
+  - { id: life, label: Student Life & Trips }
+# keywords: extra words parents might search for (not shown on the page).
 groups:
   - name: Library
     items:
       - name: Athletics, Athletic Leadership & Culture Council
+        categories: [athletics]
+        keywords: sports, teams, soccer, basketball, volleyball, tennis, golf, swimming, cross country, track, lacrosse, baseball, softball, coach, coaching, varsity, jv, practice, games, fitness, PE, physical education, leadership, captains, culture, sportsmanship
         students: true
         faculty:
           - { name: Mr. Adam Smith }
@@ -23,16 +34,24 @@ groups:
           - { name: Ms. Audrey Nellis }
           - { name: Dr. Patrick Williams }
       - name: Robotics
+        categories: [academics, clubs]
+        keywords: robot, robots, STEM, STEAM, engineering, coding, programming, computer science, computers, technology, build, competition, math, science
         faculty:
           - { name: Dr. David Montgomery, role: Math & Robotics Faculty }
       - name: Independent Student Research Project
+        categories: [academics]
+        keywords: research, ISRP, independent study, project, capstone, thesis, inquiry, writing, mentor, passion project
         students: true
         faculty:
           - { name: Ms. Sandy Pyeatt, role: English Faculty }
       - name: Math Department
+        categories: [academics]
+        keywords: mathematics, maths, algebra, geometry, precalculus, pre-calc, calculus, statistics, stats, numbers, STEM, placement
         faculty:
           - { name: Dr. Patrick Williams, role: Assistant Principal }
       - name: Science Department
+        categories: [academics]
+        keywords: biology, bio, chemistry, chem, physics, environmental science, earth science, anatomy, lab, labs, experiments, STEM
         faculty:
           - { name: Ms. Joanne Bartsch, role: Science Department Chair }
           - { name: George Batten }
@@ -40,15 +59,21 @@ groups:
           - { name: Ms. Audrey Nellis }
           - { name: Ms. Kimberly McAninch }
       - name: Trips & Experiential Learning
+        categories: [life]
+        keywords: travel, trips, field trips, experiential, outdoor, outdoors, service, hands-on, adventure, international, abroad
         faculty:
           - { name: Ms. Audrey Nellis }
           - { name: Ms. Kimberly McAninch }
       - name: Study Skills
+        categories: [academics, support]
+        keywords: study skills, organization, time management, executive function, homework, learning support, learning differences, tutoring, academic support, note-taking, test prep
         faculty:
           - { name: Mr. Matthew Buchanan, role: Study Skills Department Chair }
           - { name: Ms. Annie Zeberkiewicz }
           - { name: Mr. Mark Driscoll }
       - name: World Language Department
+        categories: [academics]
+        keywords: languages, foreign language, world languages, Spanish, French, Latin, bilingual
         faculty:
           - { name: Señora Karina Byers }
           - { name: Señora Nora Gonzalez }
@@ -56,46 +81,70 @@ groups:
   - name: Student Center
     items:
       - name: English Department
+        categories: [academics]
+        keywords: English, literature, reading, books, writing, essays, poetry, ELA
         faculty:
           - { name: Ms. Susan White, role: English Department Chair }
           - { name: Mr. Jeff Kalil, role: English Faculty }
         alsoHere:
           - { name: Mr. Steve Henry }
       - name: Social Studies Department
+        categories: [academics]
+        keywords: history, social studies, government, civics, economics, geography, psychology, current events
         faculty:
           - { name: Dr. Carl Najdek }
         alsoHere:
           - { name: Mr. Tyler Miller }
       - name: Model UN
+        categories: [clubs]
+        keywords: Model United Nations, MUN, debate, public speaking, diplomacy, global, politics, current events, club
         faculty:
           - { name: Mr. Tyler Miller, role: Social Studies Faculty }
       - name: Investment Club
+        categories: [clubs]
+        keywords: investing, stocks, stock market, finance, money, business, economics, club
         faculty:
           - { name: Mr. Steve Henry, role: English Faculty }
       - name: College Counseling
+        categories: [support]
+        keywords: college, colleges, university, admissions, applications, counselor, SAT, ACT, testing, essays, financial aid, scholarships, future
         faculty:
           - { name: Ms. Jessica Browning, role: College Counselor }
       - name: Course Offerings & Social-Emotional Learning (SEL)
+        categories: [academics, support]
+        keywords: courses, classes, schedule, curriculum, electives, AP, advanced, honors, SEL, social emotional, counselor, counseling, wellness, mental health, wellbeing
         faculty:
           - { name: Ms. Jessica Braketa, role: School Counselor }
   - name: Auditorium
     items:
       - name: Visual Arts
+        categories: [arts]
+        keywords: art, arts, drawing, painting, ceramics, pottery, sculpture, photography, design, studio
         faculty:
           - { name: Ms. Marbie Kollath, role: Arts Department Chair }
       - name: Performing Arts
+        categories: [arts]
+        keywords: theater, theatre, drama, acting, plays, musicals, music, band, chorus, choir, singing, speech, dance, performing
         students: true
         faculty:
           - { name: Ms. Annie Scarbrough, role: Performing Arts & Speech Faculty }
           - { name: Mr. Jonathan Snead, role: Music Teacher }
       - name: SLAMM Club
+        categories: [arts, clubs]
+        keywords: literature, arts, music, media, writing, creative, film, club
         description: Society of Literature, Arts, Music & Media
         studentLed: true
       - name: Student Life
+        categories: [life, clubs]
+        keywords: clubs, activities, houses, house system, dances, events, social, community, extracurricular, after school
         description: The house system, dances, events, and clubs that don't have their own table.
         studentLed: true
       - name: Yearbook
+        categories: [clubs]
+        keywords: yearbook, photography, photos, design, journalism, writing, layout, media, club
         studentLed: true
       - name: Student Government
+        categories: [clubs, life]
+        keywords: student council, student government, SGA, leadership, elections, class officers, dean of students
         faculty:
           - { name: Dr. Margee Husemann, role: English Faculty }

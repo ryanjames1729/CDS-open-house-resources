@@ -101,10 +101,19 @@ function renderDirectory(page) {
   const jump = `<nav class="chips" aria-label="Jump to a location">${groups
     .map((g) => `<a class="chip" href="#${slugify(g.name)}">${icon('map', 'chip-icon')}${esc(g.name)}<span class="count">${g.items.length}</span></a>`)
     .join('')}</nav>`;
+  const cats = page.categories || [];
+  const catLabel = Object.fromEntries(cats.map((c) => [c.id, c.label]));
+  const topics = cats.length
+    ? `<div class="topics" role="group" aria-label="Filter by topic">
+  <button type="button" class="topic" data-topic="" aria-pressed="true">All</button>
+  ${cats.map((c) => `<button type="button" class="topic" data-topic="${esc(c.id)}" aria-pressed="false">${esc(c.label)}</button>`).join('\n  ')}
+</div>`
+    : '';
   const search = `<div class="search">
   <label for="q" class="sr-only">Search tables</label>
-  <input id="q" type="search" placeholder="Search a subject, club or name" autocomplete="off" data-filter>
-  <p class="empty" hidden>No tables match. Try another word.</p>
+  <input id="q" type="search" placeholder="Search a subject, activity or name" autocomplete="off" data-filter>
+  ${topics}
+  <p class="empty" hidden>No tables match. Try another word, or ask any faculty member: they'll point you the right way.</p>
 </div>`;
   const sections = groups.map((g) => `<section class="group" id="${slugify(g.name)}" data-group>
   <h2 class="group-title">${icon('map', 'group-icon')}<span><small>Tables in the</small>${esc(g.name)}</span></h2>
@@ -114,8 +123,10 @@ function renderDirectory(page) {
       it.studentLed ? '<span class="tag tag-red">Student-led</span>' : '',
       it.students && !it.studentLed ? '<span class="tag">Student ambassadors here</span>' : '',
     ].join('');
-    const text = [it.name, it.description, g.name, ...(it.faculty || []).flatMap((p) => [p.name, p.role]), ...(it.alsoHere || []).map((p) => p.name)].filter(Boolean).join(' ');
-    return `<li class="table-card" data-search="${esc(text.toLowerCase())}">
+    const itemCats = it.categories || [];
+    for (const c of itemCats) if (!catLabel[c]) throw new Error(`${page.file}: ${it.name} has unknown category "${c}"`);
+    const text = [it.name, it.description, it.keywords, ...itemCats.map((c) => catLabel[c]), g.name, ...(it.faculty || []).flatMap((p) => [p.name, p.role]), ...(it.alsoHere || []).map((p) => p.name)].filter(Boolean).join(' ');
+    return `<li class="table-card" data-search="${esc(text.toLowerCase())}" data-topics="${esc(itemCats.join(' '))}">
     <h3>${esc(it.name)}</h3>
     ${it.description ? `<p class="desc">${esc(it.description)}</p>` : ''}
     ${tags ? `<p class="tags">${tags}</p>` : ''}

@@ -120,3 +120,8 @@ main { padding-top: 24px; padding-bottom: 32px; min-height: 70vh; }
 .qr-code svg { width: 360px; height: 360px; border: 6px solid var(--navy); border-radius: 16px; padding: 10px; }
 .qr-url { color: var(--muted); font-size: 1rem; word-break: break-all; }
 @media print { .qr-sign { padding-top: 0; } }
+
+/* Topic filter buttons (directory pages) */
+.topics { display: flex; gap: 8px; overflow-x: auto; margin: 10px -16px 0; padding: 2px 16px; scrollbar-width: none; }
+.topic { flex: none; font: inherit; font-size: 0.9rem; font-weight: 600; min-height: 44px; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--navy); background: #fff; color: var(--navy); cursor: pointer; }
+.topic[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: #fff; }
