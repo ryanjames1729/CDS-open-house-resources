@@ -1,6 +1,8 @@
 # Upper School Open House: Student Interest Tables.
 # Source: "Student Interest Tables, US Open House" (Google Doc, October 2026).
-title: Upper School Interest Tables
+eyebrow: Upper School Open House
+title: Student Interest Tables
+seal: seal-upper-school   # public/brand/seal-upper-school.png (from the 2021 Brand Guidelines)
 summary: Find the departments, programs and clubs you want to visit, and where each table is.
 icon: tables
 type: directory

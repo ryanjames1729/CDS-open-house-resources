@@ -23,10 +23,14 @@ const ICONS = {
   people: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
   book: '<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3"/><path d="M20 4v14h-7"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
   link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
 };
 const icon = (name, cls = 'icon') =>
   `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS.info}</svg>`;
+
+const RINGS = `<svg class="rings" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#C8102E" stroke-width="10"/><circle cx="200" cy="200" r="168" fill="none" stroke="#fff" stroke-width="3"/><circle cx="200" cy="200" r="120" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="2 10"/></svg>`;
+const ribbon = (text) => `<span class="ribbon"><span>${esc(text)}</span></span>`;
 
 // ---------- Load pages ----------
 const pagesDir = path.join(root, 'content/pages');
@@ -69,16 +73,21 @@ function layout({ title, body, home = false }) {
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="./">
-      <img src="brand/cds-seal-180.png" alt="" width="40" height="40">
-      <span class="brand-name">${esc(site.schoolName)}<small>${esc(site.title)}</small></span>
+    <a class="brand" href="./" aria-label="${esc(site.schoolName)}, ${esc(site.title)} home">
+      <img src="brand/cds-logo-horizontal.png" alt="${esc(site.schoolName)}" width="144" height="44">
     </a>
+    <span class="topbar-label">${esc(site.shortTitle || 'Open House')}</span>
   </div>
 </header>
-<main id="main" class="wrap">
+<main id="main">
 ${body}
 </main>
-<footer class="footer"><div class="wrap">${esc(site.footer)}</div></footer>
+<footer class="footer">
+  <div class="wrap">
+    <img src="brand/cds-seal-180.png" alt="" width="56" height="56">
+    <p><strong>${esc(site.schoolName)}</strong><br>${esc(site.footer)}</p>
+  </div>
+</footer>
 <script src="app.js" defer></script>
 </body>
 </html>
@@ -87,7 +96,7 @@ ${body}
 
 function pagerNav(i) {
   const prev = pages[i - 1], next = pages[i + 1];
-  return `<nav class="pager" aria-label="More resources">
+  return `<nav class="pager wrap" aria-label="More resources">
   <a class="pager-home" href="./">← All resources</a>
   ${next ? `<a class="pager-next" href="${next.slug}.html"><small>Next</small>${esc(next.title)} →</a>` : prev ? `<a class="pager-next" href="${prev.slug}.html"><small>Previous</small>← ${esc(prev.title)}</a>` : ''}
 </nav>`;
@@ -116,7 +125,7 @@ function renderDirectory(page) {
   <p class="empty" hidden>No tables match. Try another word, or ask any faculty member: they'll point you the right way.</p>
 </div>`;
   const sections = groups.map((g) => `<section class="group" id="${slugify(g.name)}" data-group>
-  <h2 class="group-title">${icon('map', 'group-icon')}<span><small>Tables in the</small>${esc(g.name)}</span></h2>
+  <h2 class="group-title"><span class="label">Tables in the</span><span class="venue">${esc(g.name)}</span><span class="tally">${g.items.length} tables</span></h2>
   <ul class="tables">
   ${g.items.map((it) => {
     const tags = [
@@ -137,11 +146,11 @@ function renderDirectory(page) {
   }).join('\n  ')}
   </ul>
 </section>`).join('\n');
-  return `${page.intro ? `<div class="lead">${marked.parse(page.intro)}</div>` : ''}${jump}${search}${sections}`;
+  return `<div class="wrap">${page.intro ? `<div class="lead">${marked.parse(page.intro)}</div>` : ''}${jump}${search}${sections}</div>`;
 }
 
 const renderers = {
-  markdown: (page) => `<article class="prose">${marked.parse(page.body)}</article>`,
+  markdown: (page) => `<div class="wrap"><article class="prose">${marked.parse(page.body)}</article></div>`,
   directory: renderDirectory,
 };
 
@@ -154,10 +163,19 @@ fs.copyFileSync(path.join(root, 'src/app.js'), path.join(out, 'app.js'));
 pages.forEach((page, i) => {
   const render = renderers[page.type];
   if (!render) throw new Error(`${page.file}: unknown type "${page.type}"`);
-  const body = `<div class="page-head">
-  <a class="back" href="./">← All resources</a>
-  <h1>${esc(page.title)}</h1>
-  ${page.summary ? `<p class="summary">${esc(page.summary)}</p>` : ''}
+  const body = `<div class="masthead${page.seal ? ' has-seal' : ''}">
+  ${RINGS}
+  <div class="wrap">
+    <a class="back" href="./">← All resources</a>
+    <div class="masthead-body">
+      ${page.seal ? `<img class="division-seal" src="brand/${esc(page.seal)}.png" alt="${esc(page.eyebrow || '')}" width="120" height="104">` : ''}
+      <div>
+        ${page.eyebrow ? `<p class="eyebrow">${esc(page.eyebrow)}</p>` : ''}
+        <h1>${esc(page.title)}</h1>
+        ${page.summary ? `<p class="summary">${esc(page.summary)}</p>` : ''}
+      </div>
+    </div>
+  </div>
 </div>
 ${render(page)}
 ${pagerNav(i)}`;
@@ -165,13 +183,19 @@ ${pagerNav(i)}`;
 });
 
 const home = `<section class="hero">
-  <p class="eyebrow">${esc(site.schoolName)}</p>
-  <h1>${esc(site.title)}</h1>
-  <div class="lead">${marked.parse(site.welcome || '')}</div>
+  ${RINGS}
+  <div class="wrap">
+    ${ribbon(site.ribbon || 'Welcome')}
+    <h1>${esc(site.title)}</h1>
+    <div class="hero-lead">${marked.parse(site.welcome || '')}</div>
+  </div>
 </section>
-<ul class="cards">
-${pages.map((p) => `  <li><a class="card" href="${p.slug}.html">${icon(p.icon)}<span><strong>${esc(p.title)}</strong>${p.summary ? `<small>${esc(p.summary)}</small>` : ''}</span><span class="chev" aria-hidden="true">›</span></a></li>`).join('\n')}
-</ul>`;
+<section class="wrap resources">
+  <h2 class="section-label">Resources</h2>
+  <ol class="cards">
+${pages.map((p, n) => `    <li><a class="card" href="${p.slug}.html"><span class="num">${String(n + 1).padStart(2, '0')}</span><span class="card-text">${p.eyebrow ? `<em>${esc(p.eyebrow)}</em>` : ''}<strong>${esc(p.title)}</strong>${p.summary ? `<small>${esc(p.summary)}</small>` : ''}</span><span class="chev" aria-hidden="true">${icon('arrow', 'chev-icon')}</span></a></li>`).join('\n')}
+  </ol>
+</section>`;
 fs.writeFileSync(path.join(out, 'index.html'), layout({ title: site.title, body: home, home: true }));
 
 // Printable QR sign that points at the site (not linked from the site; open /qr.html to print).
