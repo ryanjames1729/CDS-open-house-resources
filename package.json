@@ -1,0 +1,25 @@
+{
+  "name": "cds-open-house-resources",
+  "version": "1.0.0",
+  "description": "Parent-facing Open House resources for Carolina Day School (static site for GitHub Pages).",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && python3 -m http.server 4173 -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanjames1729/CDS-open-house-resources.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ryanjames1729/CDS-open-house-resources/issues"
+  },
+  "homepage": "https://github.com/ryanjames1729/CDS-open-house-resources#readme",
+  "devDependencies": {
+    "js-yaml": "^4.3.2",
+    "marked": "^14.1.4",
+    "qrcode": "^1.5.4"
+  },
+  "private": true,
+  "type": "module"
+}

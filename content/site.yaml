@@ -1,0 +1,9 @@
+# Site-wide settings. Edit and push; the site rebuilds automatically.
+title: Open House Resources
+schoolName: Carolina Day School
+tagline: Everything for tonight's visit, right on your phone.
+# Public address of the site. The printable QR code points here.
+url: https://ryanjames1729.github.io/CDS-open-house-resources/
+welcome: |
+  Welcome to Carolina Day School! Tap a resource below to find who to meet and where to find them.
+footer: Carolina Day School · Asheville, North Carolina

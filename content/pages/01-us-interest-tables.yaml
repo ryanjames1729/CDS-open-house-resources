@@ -1,0 +1,101 @@
+# Upper School Open House: Student Interest Tables.
+# Source: "Student Interest Tables, US Open House" (Google Doc, October 2026).
+title: Upper School Interest Tables
+summary: Find the departments, programs and clubs you want to visit, and where each table is.
+icon: tables
+type: directory
+# Student ambassadors' names are left off on purpose (public site); tables with
+# ambassadors set students: true, and student-led tables set studentLed: true.
+intro: |
+  Faculty and student ambassadors are waiting at tables in three spaces. Tap a space to jump to it, or search for a subject, club or person.
+groups:
+  - name: Library
+    items:
+      - name: Athletics, Athletic Leadership & Culture Council
+        students: true
+        faculty:
+          - { name: Mr. Adam Smith }
+          - { name: Mr. Joe Barber }
+        alsoHere:
+          - { name: Ms. Annie Zeberkiewicz }
+          - { name: Mr. Mark Driscoll }
+          - { name: Ms. Kimberly McAninch }
+          - { name: Ms. Audrey Nellis }
+          - { name: Dr. Patrick Williams }
+      - name: Robotics
+        faculty:
+          - { name: Dr. David Montgomery, role: Math & Robotics Faculty }
+      - name: Independent Student Research Project
+        students: true
+        faculty:
+          - { name: Ms. Sandy Pyeatt, role: English Faculty }
+      - name: Math Department
+        faculty:
+          - { name: Dr. Patrick Williams, role: Assistant Principal }
+      - name: Science Department
+        faculty:
+          - { name: Ms. Joanne Bartsch, role: Science Department Chair }
+          - { name: George Batten }
+        alsoHere:
+          - { name: Ms. Audrey Nellis }
+          - { name: Ms. Kimberly McAninch }
+      - name: Trips & Experiential Learning
+        faculty:
+          - { name: Ms. Audrey Nellis }
+          - { name: Ms. Kimberly McAninch }
+      - name: Study Skills
+        faculty:
+          - { name: Mr. Matthew Buchanan, role: Study Skills Department Chair }
+          - { name: Ms. Annie Zeberkiewicz }
+          - { name: Mr. Mark Driscoll }
+      - name: World Language Department
+        faculty:
+          - { name: Señora Karina Byers }
+          - { name: Señora Nora Gonzalez }
+          - { name: Mr. Seth Buddy }
+  - name: Student Center
+    items:
+      - name: English Department
+        faculty:
+          - { name: Ms. Susan White, role: English Department Chair }
+          - { name: Mr. Jeff Kalil, role: English Faculty }
+        alsoHere:
+          - { name: Mr. Steve Henry }
+      - name: Social Studies Department
+        faculty:
+          - { name: Dr. Carl Najdek }
+        alsoHere:
+          - { name: Mr. Tyler Miller }
+      - name: Model UN
+        faculty:
+          - { name: Mr. Tyler Miller, role: Social Studies Faculty }
+      - name: Investment Club
+        faculty:
+          - { name: Mr. Steve Henry, role: English Faculty }
+      - name: College Counseling
+        faculty:
+          - { name: Ms. Jessica Browning, role: College Counselor }
+      - name: Course Offerings & Social-Emotional Learning (SEL)
+        faculty:
+          - { name: Ms. Jessica Braketa, role: School Counselor }
+  - name: Auditorium
+    items:
+      - name: Visual Arts
+        faculty:
+          - { name: Ms. Marbie Kollath, role: Arts Department Chair }
+      - name: Performing Arts
+        students: true
+        faculty:
+          - { name: Ms. Annie Scarbrough, role: Performing Arts & Speech Faculty }
+          - { name: Mr. Jonathan Snead, role: Music Teacher }
+      - name: SLAMM Club
+        description: Society of Literature, Arts, Music & Media
+        studentLed: true
+      - name: Student Life
+        description: The house system, dances, events, and clubs that don't have their own table.
+        studentLed: true
+      - name: Yearbook
+        studentLed: true
+      - name: Student Government
+        faculty:
+          - { name: Dr. Margee Husemann, role: English Faculty }
