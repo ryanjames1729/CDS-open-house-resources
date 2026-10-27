@@ -6,6 +6,28 @@ schoolName: Carolina Day School
 tagline: Everything for tonight's visit, right on your phone.
 # Public address of the site. The printable QR code points here.
 url: https://ryanjames1729.github.io/CDS-open-house-resources/
+
+# Home page. The quote is the school's own line from carolinaday.org.
+quote: Every kid holds something extraordinary.
 welcome: |
   Welcome to Carolina Day School! Tap a resource below to find who to meet and where to find them.
-footer: Asheville, North Carolina
+
+# "Discover CDS" band at the bottom of the home page (wording and links from carolinaday.org).
+discover:
+  title: Discover CDS
+  text: The student-teacher relationship is what makes the difference at Carolina Day.
+  links:
+    - { label: Inquire, url: "https://www.carolinaday.org/admission/inquire" }
+    - { label: Apply, url: "https://www.carolinaday.org/fs/pages/515" }
+    - { label: Visit carolinaday.org, url: "https://www.carolinaday.org/" }
+
+# Footer (as published in the carolinaday.org footer).
+contact:
+  address: [1345 Hendersonville Road, "Asheville, NC 28803"]
+  phone: 828-274-0757
+  about: Asheville’s co-ed independent day school for grades JK–12, where inclusive community, inspired teaching, and innovative program create a journey of excellence for each student.
+  social:
+    - { label: Instagram, url: "https://www.instagram.com/carolinadayschool/" }
+    - { label: Facebook, url: "https://www.facebook.com/carolinadayschool" }
+    - { label: YouTube, url: "https://www.youtube.com/carolinadayschool" }
+    - { label: LinkedIn, url: "https://www.linkedin.com/school/carolinadayschool" }

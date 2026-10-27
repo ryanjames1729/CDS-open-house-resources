@@ -29,7 +29,7 @@ const ICONS = {
 const icon = (name, cls = 'icon') =>
   `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS.info}</svg>`;
 
-const RINGS = `<svg class="rings" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#C8102E" stroke-width="10"/><circle cx="200" cy="200" r="168" fill="none" stroke="#fff" stroke-width="3"/><circle cx="200" cy="200" r="120" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="2 10"/></svg>`;
+const RINGS = `<svg class="rings" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="none" stroke="#C8102E" stroke-width="10"/><circle cx="200" cy="200" r="168" fill="none" stroke="#003A70" stroke-width="3"/><circle cx="200" cy="200" r="120" fill="none" stroke="#003A70" stroke-width="1.5" stroke-dasharray="2 10"/></svg>`;
 const ribbon = (text) => `<span class="ribbon"><span>${esc(text)}</span></span>`;
 
 // ---------- Load pages ----------
@@ -84,8 +84,10 @@ ${body}
 </main>
 <footer class="footer">
   <div class="wrap">
-    <img src="brand/cds-seal-180.png" alt="" width="56" height="56">
-    <p><strong>${esc(site.schoolName)}</strong><br>${esc(site.footer)}</p>
+    <img class="footer-logo" src="brand/cds-logo-horizontal.png" alt="${esc(site.schoolName)}" width="180" height="55">
+    ${site.contact ? `<address>${(site.contact.address || []).map(esc).join('<br>')}${site.contact.phone ? `<br>Phone: <a href="tel:${esc(site.contact.phone.replace(/[^0-9]/g, ''))}">${esc(site.contact.phone)}</a>` : ''}</address>
+    ${site.contact.about ? `<p class="footer-about">${esc(site.contact.about)}</p>` : ''}
+    ${site.contact.social?.length ? `<p class="footer-social">${site.contact.social.map((l) => `<a href="${esc(l.url)}">${esc(l.label)}</a>`).join('<span aria-hidden="true">/</span>')}</p>` : ''}` : ''}
   </div>
 </footer>
 <script src="app.js" defer></script>
@@ -169,7 +171,7 @@ pages.forEach((page, i) => {
     <a class="back" href="./">← All resources</a>
     <div class="masthead-body">
       ${page.seal ? `<img class="division-seal" src="brand/${esc(page.seal)}.png" alt="${esc(page.eyebrow || '')}" width="120" height="104">` : ''}
-      <div>
+      <div class="masthead-text">
         ${page.eyebrow ? `<p class="eyebrow">${esc(page.eyebrow)}</p>` : ''}
         <h1>${esc(page.title)}</h1>
         ${page.summary ? `<p class="summary">${esc(page.summary)}</p>` : ''}
@@ -182,11 +184,21 @@ ${pagerNav(i)}`;
   fs.writeFileSync(path.join(out, `${page.slug}.html`), layout({ title: page.title, body }));
 });
 
+const discover = site.discover
+  ? `<section class="discover">
+  <div class="wrap">
+    <h2>${esc(site.discover.title)}</h2>
+    ${site.discover.text ? `<p>${esc(site.discover.text)}</p>` : ''}
+    <p class="buttons">${(site.discover.links || []).map((l) => `<a class="btn" href="${esc(l.url)}">${esc(l.label)}</a>`).join('')}</p>
+  </div>
+</section>`
+  : '';
 const home = `<section class="hero">
   ${RINGS}
   <div class="wrap">
     ${ribbon(site.ribbon || 'Welcome')}
     <h1>${esc(site.title)}</h1>
+    ${site.quote ? `<p class="hero-quote">${esc(site.quote)}</p>` : ''}
     <div class="hero-lead">${marked.parse(site.welcome || '')}</div>
   </div>
 </section>
@@ -195,7 +207,8 @@ const home = `<section class="hero">
   <ol class="cards">
 ${pages.map((p, n) => `    <li><a class="card" href="${p.slug}.html"><span class="num">${String(n + 1).padStart(2, '0')}</span><span class="card-text">${p.eyebrow ? `<em>${esc(p.eyebrow)}</em>` : ''}<strong>${esc(p.title)}</strong>${p.summary ? `<small>${esc(p.summary)}</small>` : ''}</span><span class="chev" aria-hidden="true">${icon('arrow', 'chev-icon')}</span></a></li>`).join('\n')}
   </ol>
-</section>`;
+</section>
+${discover}`;
 fs.writeFileSync(path.join(out, 'index.html'), layout({ title: site.title, body: home, home: true }));
 
 // Printable QR sign that points at the site (not linked from the site; open /qr.html to print).
