@@ -66,7 +66,7 @@ function layout({ title, body, home = false }) {
 <link rel="apple-touch-icon" href="brand/cds-seal-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -214,7 +214,7 @@ const qrSvg = await QRCode.toString(site.url, { type: 'svg', margin: 1, errorCor
 fs.writeFileSync(path.join(out, 'qr.svg'), qrSvg);
 fs.writeFileSync(path.join(out, 'qr.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>QR sign · ${esc(site.title)}</title><meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css"></head>
 <body class="qr-page"><div class="qr-sign">
 <img class="qr-logo" src="brand/cds-logo-horizontal.png" alt="${esc(site.schoolName)}">
