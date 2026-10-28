@@ -143,7 +143,6 @@ function renderDirectory(page) {
     ${tags ? `<p class="tags">${tags}</p>` : ''}
     ${it.faculty?.length ? `<ul class="people">${it.faculty.map(person).join('')}</ul>` : ''}
     ${it.alsoHere?.length ? `<p class="also"><span>Also joining:</span> ${it.alsoHere.map((p) => esc(p.name)).join(', ')}</p>` : ''}
-    ${it.studentLed && !it.faculty?.length ? '<p class="also">Hosted by our student ambassadors.</p>' : ''}
   </li>`;
   }).join('\n  ')}
   </ul>

@@ -1,15 +1,15 @@
 # Upper School Open House: Student Interest Tables.
-# Source: "Student Interest Tables, US Open House" (Google Doc, October 2026).
+# Source: "Student Interest Tables, US Open House" (Google Doc, updated October 28, 2026).
+# Student ambassadors' names are left off on purpose (public site). Every table has one,
+# which the intro says; student-led tables set studentLed: true.
 eyebrow: Upper School Open House
 title: Student Interest Tables
 seal: seal-upper-school   # public/brand/seal-upper-school.png (from the 2021 Brand Guidelines)
 summary: Find the departments, programs and clubs you want to visit, and where each table is.
 icon: tables
 type: directory
-# Student ambassadors' names are left off on purpose (public site); tables with
-# ambassadors set students: true, and student-led tables set studentLed: true.
 intro: |
-  Faculty and student ambassadors are waiting at tables in three spaces. Tap a topic or a space, or search for a subject, activity or person (try "biology" or "theater").
+  Faculty and student ambassadors are waiting at tables in three spaces, and every table has a student ambassador ready to answer questions. Tap a topic or a space, or search for a subject, activity or person (try "biology" or "theater").
 # Topic buttons shown above the tables. Each table lists one or more ids under categories.
 categories:
   - { id: academics, label: Academics }
@@ -23,27 +23,21 @@ groups:
   - name: Library
     items:
       - name: Athletics, Athletic Leadership & Culture Council
+        description: Come speak with our student athletes!
         categories: [athletics]
         keywords: sports, teams, soccer, basketball, volleyball, tennis, golf, swimming, cross country, track, lacrosse, baseball, softball, coach, coaching, varsity, jv, practice, games, fitness, PE, physical education, leadership, captains, culture, sportsmanship
-        students: true
         faculty:
-          - { name: Mr. Adam Smith }
-          - { name: Mr. Joe Barber }
-        alsoHere:
-          - { name: Ms. Annie Zeberkiewicz }
-          - { name: Mr. Mark Driscoll }
-          - { name: Ms. Kimberly McAninch }
-          - { name: Ms. Audrey Nellis }
-          - { name: Dr. Patrick Williams }
+          - { name: Mr. Adam Smith, role: Director of Athletics }
       - name: Robotics
+        description: We offer a Robotics class and a competitive Robotics Club.
         categories: [academics, clubs]
         keywords: robot, robots, STEM, STEAM, engineering, coding, programming, computer science, computers, technology, build, competition, math, science
         faculty:
           - { name: Dr. David Montgomery, role: Math & Robotics Faculty }
       - name: Independent Student Research Project
+        description: Learn more about this Senior research class.
         categories: [academics]
-        keywords: research, ISRP, independent study, project, capstone, thesis, inquiry, writing, mentor, passion project
-        students: true
+        keywords: research, ISRP, independent study, project, capstone, thesis, inquiry, writing, mentor, passion project, senior, seniors, 12th grade
         faculty:
           - { name: Ms. Sandy Pyeatt, role: English Faculty }
       - name: Math Department
@@ -51,35 +45,34 @@ groups:
         keywords: mathematics, maths, algebra, geometry, precalculus, pre-calc, calculus, statistics, stats, numbers, STEM, placement
         faculty:
           - { name: Dr. Patrick Williams, role: Assistant Principal }
+          - { name: Carolyn Lowe-Thompson, role: Math Faculty }
       - name: Science Department
         categories: [academics]
         keywords: biology, bio, chemistry, chem, physics, environmental science, earth science, anatomy, lab, labs, experiments, STEM
         faculty:
           - { name: Ms. Joanne Bartsch, role: Science Department Chair }
-          - { name: George Batten }
-        alsoHere:
-          - { name: Ms. Audrey Nellis }
-          - { name: Ms. Kimberly McAninch }
+          - { name: Dr. George Batten, role: Science Faculty }
       - name: Trips & Experiential Learning
+        description: Learn about optional international trips and field trips associated with specific classes.
         categories: [life]
         keywords: travel, trips, field trips, experiential, outdoor, outdoors, service, hands-on, adventure, international, abroad
         faculty:
-          - { name: Ms. Audrey Nellis }
-          - { name: Ms. Kimberly McAninch }
+          - { name: Ms. Audrey Nellis, role: Science Faculty }
+          - { name: Ms. Kimberly McAninch, role: Science & Math Faculty }
       - name: Study Skills
         categories: [academics, support]
         keywords: study skills, organization, time management, executive function, homework, learning support, learning differences, tutoring, academic support, note-taking, test prep
         faculty:
           - { name: Mr. Matthew Buchanan, role: Study Skills Department Chair }
-          - { name: Ms. Annie Zeberkiewicz }
-          - { name: Mr. Mark Driscoll }
+          - { name: Ms. Annie Zeberkiewicz, role: Study Skills Faculty }
+          - { name: Mr. Mark Driscoll, role: Study Skills Faculty }
       - name: World Language Department
         categories: [academics]
         keywords: languages, foreign language, world languages, Spanish, French, Latin, bilingual
         faculty:
-          - { name: Señora Karina Byers }
-          - { name: Señora Nora Gonzalez }
-          - { name: Mr. Seth Buddy }
+          - { name: Señora Karina Byers, role: World Language Department Chair }
+          - { name: Señora Nora González, role: Spanish Faculty }
+          - { name: Mr. Seth Buddy, role: French & Science Faculty }
   - name: Student Center
     items:
       - name: English Department
@@ -88,23 +81,21 @@ groups:
         faculty:
           - { name: Ms. Susan White, role: English Department Chair }
           - { name: Mr. Jeff Kalil, role: English Faculty }
-        alsoHere:
-          - { name: Mr. Steve Henry }
       - name: Social Studies Department
         categories: [academics]
         keywords: history, social studies, government, civics, economics, geography, psychology, current events
         faculty:
-          - { name: Dr. Carl Najdek }
-        alsoHere:
-          - { name: Mr. Tyler Miller }
+          - { name: Dr. Carl Najdek, role: Social Studies Faculty }
       - name: Model UN
+        description: The Model UN club just attended the annual Model UN conference at Appalachian State University!
         categories: [clubs]
-        keywords: Model United Nations, MUN, debate, public speaking, diplomacy, global, politics, current events, club
+        keywords: Model United Nations, MUN, debate, public speaking, diplomacy, global, politics, current events, club, conference
         faculty:
           - { name: Mr. Tyler Miller, role: Social Studies Faculty }
       - name: Investment Club
+        description: The Investment Club competes against other local schools in investment challenges. They also take field trips and have guest speakers.
         categories: [clubs]
-        keywords: investing, stocks, stock market, finance, money, business, economics, club
+        keywords: investing, stocks, stock market, finance, money, business, economics, club, competition
         faculty:
           - { name: Mr. Steve Henry, role: English Faculty }
       - name: College Counseling
@@ -112,9 +103,9 @@ groups:
         keywords: college, colleges, university, admissions, applications, counselor, SAT, ACT, testing, essays, financial aid, scholarships, future
         faculty:
           - { name: Ms. Jessica Browning, role: College Counselor }
-      - name: Course Offerings & Social-Emotional Learning (SEL)
+      - name: Course Offerings
         categories: [academics, support]
-        keywords: courses, classes, schedule, curriculum, electives, AP, advanced, honors, SEL, social emotional, counselor, counseling, wellness, mental health, wellbeing
+        keywords: courses, classes, schedule, curriculum, electives, AP, advanced, honors, counselor, school counselor, counseling, SEL, social emotional, wellness, wellbeing, mental health
         faculty:
           - { name: Ms. Jessica Braketa, role: School Counselor }
   - name: Auditorium
@@ -127,26 +118,32 @@ groups:
       - name: Performing Arts
         categories: [arts]
         keywords: theater, theatre, drama, acting, plays, musicals, music, band, chorus, choir, singing, speech, dance, performing
-        students: true
         faculty:
           - { name: Ms. Annie Scarbrough, role: Performing Arts & Speech Faculty }
-          - { name: Mr. Jonathan Snead, role: Music Teacher }
+          - { name: Jonathan Snead, role: Music Faculty }
       - name: SLAMM Club
+        description: The Society of Literature, Arts, Music & Media helps host our Salon Rouge art evenings, cultivates creativity within the student body, and produces an award-winning magazine featuring student writing, art, and music.
         categories: [arts, clubs]
-        keywords: literature, arts, music, media, writing, creative, film, club
-        description: Society of Literature, Arts, Music & Media
+        keywords: literature, arts, music, media, writing, creative, film, magazine, literary magazine, poetry, Salon Rouge, club
         studentLed: true
       - name: Student Life
+        description: Come learn about our House System, Student Events, Clubs, and More!
         categories: [life, clubs]
         keywords: clubs, activities, houses, house system, dances, events, social, community, extracurricular, after school
-        description: The house system, dances, events, and clubs that don't have their own table.
         studentLed: true
       - name: Yearbook
+        description: Yearbook is an elective class. The CDS Yearbook for all grades JK-12 is produced by our Upper School students.
         categories: [clubs]
-        keywords: yearbook, photography, photos, design, journalism, writing, layout, media, club
+        keywords: yearbook, photography, photos, design, journalism, writing, layout, media, elective, class
         studentLed: true
       - name: Student Government
+        description: Our student body co-presidents lead the weekly student meetings. Student Government plans games, dances, and celebrations.
         categories: [clubs, life]
-        keywords: student council, student government, SGA, leadership, elections, class officers, dean of students
+        keywords: student council, student government, SGA, leadership, elections, class officers, president, co-presidents, dances, events
+        studentLed: true
+      - name: Speech & Debate Club
+        description: Speech & Debate Club travels and competes locally and regionally.
+        categories: [clubs]
+        keywords: speech, debate, public speaking, forensics, argument, competition, tournament, club
         faculty:
-          - { name: Dr. Margee Husemann, role: English Faculty }
+          - { name: Mr. Michael Lemon, role: Social Studies Faculty }
