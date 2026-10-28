@@ -195,9 +195,8 @@ const discover = site.discover
 const home = `<section class="hero">
   ${RINGS}
   <div class="wrap">
-    ${ribbon(site.ribbon || 'Welcome')}
-    <h1>${esc(site.title)}</h1>
-    ${site.quote ? `<p class="hero-quote">${esc(site.quote)}</p>` : ''}
+    ${ribbon(site.ribbon || site.title)}
+    <h1>${esc(site.headline || site.title)}${site.headlineAnswer ? `<span class="hero-answer">${esc(site.headlineAnswer)}</span>` : ''}</h1>
     <div class="hero-lead">${marked.parse(site.welcome || '')}</div>
   </div>
 </section>

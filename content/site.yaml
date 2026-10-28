@@ -1,14 +1,15 @@
 # Site-wide settings. Edit and push; the site rebuilds automatically.
 title: Open House Resources
 shortTitle: Open House   # small label in the header
-ribbon: Welcome          # red ribbon above the home-page title
+ribbon: Open House Resources   # red ribbon above the home-page headline
 schoolName: Carolina Day School
 tagline: Everything for tonight's visit, right on your phone.
 # Public address of the site. The printable QR code points here.
 url: https://ryanjames1729.github.io/CDS-open-house-resources/
 
-# Home page. The quote is the school's own line from carolinaday.org.
-quote: Every kid holds something extraordinary.
+# Home page headline: the school's current marketing theme (owner, October 2026).
+headline: Think one kid can change the world?
+headlineAnswer: We do.
 welcome: |
   Welcome to Carolina Day School! Tap a resource below to find who to meet and where to find them.
 
