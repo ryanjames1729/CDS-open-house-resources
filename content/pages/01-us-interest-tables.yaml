@@ -1,7 +1,7 @@
 # Upper School Open House: Student Interest Tables.
-# Source: "Student Interest Tables, US Open House" (Google Doc, updated November 2, 2026).
+# Source: "Student Interest Tables, US Open House" (Google Doc, updated November 4, 2026).
 # Student ambassadors' names are left off on purpose (public site), as are the
-# document's event-day assignments (group leaders, sign-in, door greeters).
+# document's event-day assignments (group leaders, sign-in, panel moderators and panelists).
 # Student-led tables set studentLed: true.
 eyebrow: Upper School Open House
 title: Student Interest Tables
@@ -23,10 +23,10 @@ categories:
 groups:
   - name: Library
     items:
-      - name: Athletics
+      - name: Athletics & ALCC
         description: Come speak with our student athletes!
         categories: [athletics]
-        keywords: sports, teams, soccer, basketball, volleyball, tennis, golf, swimming, cross country, track, lacrosse, baseball, softball, skiing, snowboarding, coach, coaching, varsity, jv, practice, games, fitness, PE, physical education, leadership, captains, sportsmanship
+        keywords: sports, teams, soccer, basketball, volleyball, tennis, golf, swimming, cross country, track, lacrosse, baseball, softball, skiing, snowboarding, ALCC, Athletic Leadership & Culture Council, culture council, coach, coaching, varsity, jv, practice, games, fitness, PE, physical education, leadership, captains, sportsmanship
         faculty:
           - { name: Mr. Adam Smith, role: Director of Athletics }
           - { name: Mr. Mark Driscoll, role: "Study Skills Faculty, Cross Country & Track & Field Coach" }
@@ -39,9 +39,9 @@ groups:
       - name: Independent Student Research Project
         description: Self-directed research class for 11th- and 12th-grade students.
         categories: [academics]
-        keywords: research, ISRP, independent study, project, capstone, thesis, inquiry, writing, mentor, passion project, junior, juniors, senior, seniors, 11th grade, 12th grade
+        keywords: research, ISRP, independent study, project, capstone, thesis, inquiry, writing, mentor, passion project, library, librarian, junior, juniors, senior, seniors, 11th grade, 12th grade
         faculty:
-          - { name: Ms. Sandy Pyeatt, role: English Faculty }
+          - { name: Ms. Sandy Pyeatt, role: Librarian & English Faculty }
       - name: Math Department
         categories: [academics]
         keywords: mathematics, maths, algebra, geometry, precalculus, pre-calc, calculus, statistics, stats, numbers, STEM, placement
@@ -116,11 +116,15 @@ groups:
         categories: [arts]
         keywords: art, arts, drawing, painting, ceramics, pottery, sculpture, photography, design, studio
         studentLed: true
-      - name: Performing Arts
+      - name: Theatre
         categories: [arts]
-        keywords: theater, theatre, drama, acting, plays, musicals, music, band, chorus, choir, singing, speech, dance, performing
+        keywords: theater, theatre, drama, acting, actor, actors, plays, musicals, stage, performing arts, performing, speech
         faculty:
           - { name: Ms. Annie Scarbrough, role: Performing Arts & Speech Faculty }
+      - name: Music
+        categories: [arts]
+        keywords: music, band, chorus, choir, singing, voice, instruments, musicians, orchestra, performing arts, performing
+        faculty:
           - { name: Jonathan Snead, role: Music Faculty }
       - name: SLAMM Club
         description: The Society of Literature, Arts, Music & Media helps host our Salon Rouge art evenings, cultivates creativity within the student body, and produces an award-winning magazine featuring student writing, art, and music.
